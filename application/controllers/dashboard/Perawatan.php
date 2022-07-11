@@ -26,6 +26,7 @@ class Perawatan extends CI_Controller {
 		$this->data['perawatan'] = $perawatan;
 		$this->data['jenisPerawatan'] = $this->JenisPerawatanModel->getData();
 		$this->data['mobil'] = $this->MobilModel->getData();
+		$this->data['title'] = 'Admin Pages | Perawatan Management';
 		
 		$data = [];
 		foreach ($perawatan as $value) {

@@ -20,6 +20,7 @@ class Merk extends CI_Controller {
 	public function index()
 	{
 		$this->data['merk'] = $this->MerkModel->getData();
+		$this->data['title'] = 'Admin Pages | Merk Management';
 		
 		$this->load->view('dashboard/admin/merk/index', $this->data);
 	}

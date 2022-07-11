@@ -51,4 +51,3 @@
 	</div>
 	<!-- /.modal-dialog -->
 </div>
-

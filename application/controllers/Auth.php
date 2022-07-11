@@ -1,12 +1,11 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller {
-
-
-    function __construct()
-    {
+class Auth extends CI_Controller
+{
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->library(['form_validation']);
 		$this->load->model('AuthModel');
@@ -34,25 +33,25 @@ class Auth extends CI_Controller {
 				'success_message' => null,
 				'error_message' => validation_errors()
 			];
-			
+
 			return $this->output
-			->set_content_type('application/json')
-			->set_status_header(400)
-			->set_output(json_encode($response));
-		} 
+				->set_content_type('application/json')
+				->set_status_header(400)
+				->set_output(json_encode($response));
+		}
 
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 
-		if($this->AuthModel->login($username, $password)){
+		if ($this->AuthModel->login($username, $password)) {
 			$user = $this->AuthModel->current_user();
 
 			if ($user->role == "administrator") {
-				$redirect_url = site_url('dashboard/mobil');
+				$redirect_url = site_url('dashboard/home');
 			} else {
 				$redirect_url = site_url('/');
 			}
-			
+
 			$data = [
 				'username' => $user->username,
 				'email' => $user->email,
@@ -71,12 +70,11 @@ class Auth extends CI_Controller {
 				'error_message' => null,
 				'redirect_url' => $redirect_url
 			];
-			
+
 			return $this->output
-			->set_content_type('application/json')
-			->set_status_header(200)
-			->set_output(json_encode($response));
-			
+				->set_content_type('application/json')
+				->set_status_header(200)
+				->set_output(json_encode($response));
 		} else {
 			$response = [
 				'status' => 400,
@@ -87,14 +85,12 @@ class Auth extends CI_Controller {
 				'success_message' => null,
 				'error_message' => 'Login Gagal, pastikan username dan passwrod benar!'
 			];
-			
+
 			return $this->output
-			->set_content_type('application/json')
-			->set_status_header(400)
-			->set_output(json_encode($response));
-
+				->set_content_type('application/json')
+				->set_status_header(400)
+				->set_output(json_encode($response));
 		}
-
 	}
 
 	public function logout()
@@ -102,7 +98,7 @@ class Auth extends CI_Controller {
 		$this->load->model('AuthModel');
 		$this->AuthModel->logout();
 		$this->session->unset_userdata('username');
-        $this->session->unset_userdata('role_id');
+		$this->session->unset_userdata('role_id');
 		redirect(site_url());
 	}
 
@@ -123,16 +119,16 @@ class Auth extends CI_Controller {
 				'success_message' => null,
 				'error_message' => validation_errors()
 			];
-			
+
 			return $this->output
-			->set_content_type('application/json')
-			->set_status_header(400)
-			->set_output(json_encode($response));
+				->set_content_type('application/json')
+				->set_status_header(400)
+				->set_output(json_encode($response));
 		}
-		
+
 
 		if ($this->input->post('password') != $this->input->post('password2')) {
-            // Jika password dan konfirmasi password tidak sama
+			// Jika password dan konfirmasi password tidak sama
 			$response = [
 				'status' => 400,
 				'response' => 'fail',
@@ -142,22 +138,22 @@ class Auth extends CI_Controller {
 				'success_message' => null,
 				'error_message' => "Password dengan Konfirmasi Password Berbeda!"
 			];
-			
+
 			return $this->output
-			->set_content_type('application/json')
-			->set_status_header(400)
-			->set_output(json_encode($response));
-        }
+				->set_content_type('application/json')
+				->set_status_header(400)
+				->set_output(json_encode($response));
+		}
 
 		$data = [
-            'username' => $this->input->post('username'),
-            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'email' => $this->input->post('email'),
-            'role' => 'public',
+			'username' => $this->input->post('username'),
+			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+			'email' => $this->input->post('email'),
+			'role' => 'public',
 			'status' => 1,
 			'created_at' => date('Y-m-d H:i:s'),
 			'last_login' => date('Y-m-d H:i:s')
-        ];
+		];
 
 		$this->UserModel->store($data);
 
@@ -170,13 +166,12 @@ class Auth extends CI_Controller {
 			'success_message' => "Berhasil Melakukan Registrasi!",
 			'error_message' => null
 		];
-		
+
 		return $this->output
-		->set_content_type('application/json')
-		->set_status_header(200)
-		->set_output(json_encode($response));
+			->set_content_type('application/json')
+			->set_status_header(200)
+			->set_output(json_encode($response));
 	}
 }
 
 /* End of file MainController.php */
-

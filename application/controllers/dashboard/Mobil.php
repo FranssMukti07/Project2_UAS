@@ -46,7 +46,7 @@ class Mobil extends CI_Controller {
 	
 		$this->data['data'] = $data;
 		$this->data['merks'] = $merks;
-
+		$this->data['title'] = 'Admin Pages | Mobil Management';
 		
 		$this->load->view('dashboard/admin/mobil/index', $this->data);
 	}

@@ -54,7 +54,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?= $no = 1; foreach ($data as $value): ?>
+									<?php $no = 1; foreach ($data as $value): ?>
 									<tr>
 										<td><?= $no; ?></td>
 										<td><?= $value['nopol'];  ?></td>
@@ -75,7 +75,7 @@
 											</button>
 										</td>
 									</tr>
-									<?= $no++; endforeach; ?>
+									<?php $no++; endforeach; ?>
 								</tbody>
 							</table>
 						</div>

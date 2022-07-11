@@ -51,7 +51,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?= $no = 1; foreach ($merk as $value): ?>
+									<?php $no = 1; foreach ($merk as $value): ?>
 									<tr>
 										<td><?= $no; ?></td>
 										<td><?= $value->nama;  ?></td>
@@ -69,7 +69,7 @@
 											</button>
 										</td>
 									</tr>
-									<?= $no++; endforeach; ?>
+									<?php $no++; endforeach; ?>
 								</tbody>
 							</table>
 						</div>

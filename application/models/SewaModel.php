@@ -29,7 +29,7 @@ class SewaModel extends CI_Model
     public function get_by_users_id($users_id)
     {
         $query = $this->db->get_where('sewa', ['users_id' => $users_id]);
-        return $query->row();
+        return $query->result();
     }
 }
 ?>

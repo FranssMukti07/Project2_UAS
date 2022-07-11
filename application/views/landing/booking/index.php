@@ -18,7 +18,7 @@
                 <!-- Navbar -->
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                     <nav class="navigation navbar navbar-expand-md navbar-dark" id="mainNav">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -70,7 +70,7 @@
             <div class="col-md-12 p-3">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex">
-                        <img width="200" height="200" src="<?= base_url('assets/public/dashboard/mobil/' . $mb->foto) ?>" alt="Mitsubishi Xpander">
+                        <img width="200" height="200" src="<?= base_url('assets/assets_landing/images/' . $mb->foto) ?>" alt="Mitsubishi Xpander">
                         <div class="d-flex flex-column my-auto ml-3" style="width: 200px;">
                             <?php
                             $merk = $mb->merk_id;

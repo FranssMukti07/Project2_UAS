@@ -52,7 +52,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?= $no = 1; foreach ($users as $value): ?>
+									<?php $no = 1; foreach ($users as $value): ?>
 									<tr>
 										<td><?= $no; ?></td>
 										<td><?= $value->username;  ?></td>
@@ -71,7 +71,7 @@
 											</button>
 										</td>
 									</tr>
-									<?= $no++; endforeach; ?>
+									<?php $no++; endforeach; ?>
 								</tbody>
 							</table>
 						</div>

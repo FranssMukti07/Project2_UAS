@@ -19,9 +19,11 @@ class JenisPerawatan extends CI_Controller {
 
 	public function index()
 	{
-		$this->data['jenisperawatan'] = $this->JenisPerawatanModel->getData();
+		$data['jenisperawatan'] = $this->JenisPerawatanModel->getData();
+		$data['title'] = 'Admin Pages | Jenis Perawatan Management';
 		
-		$this->load->view('dashboard/admin/jenisperawatan/index', $this->data);
+		// redirect('dashboard/jenisperawatan/index', $this->data);
+		$this->load->view('dashboard/admin/jenisperawatan/index', $data);
 	}
 
 	public function store()

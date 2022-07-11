@@ -20,6 +20,7 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$this->data['users'] = $this->UserModel->getData();
+		$this->data['title'] = 'Admin Pages | User Management';
 		
 		$this->load->view('dashboard/admin/user/index', $this->data);
 	}

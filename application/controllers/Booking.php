@@ -36,12 +36,16 @@ class Booking extends CI_Controller
     public function riwayat()
     {
         // Ambil data berdasarkan users_id dari tabel sewa
-        // error_reporting(0);
-        $sewa = $this->SewaModel->get_by_users_id($this->session->userdata('id'));
+        error_reporting(0);
+        $sewa_hasil = $this->SewaModel->get_by_users_id($this->session->userdata('id'));
+        // $mobil = $this->MobilModel->getDataById($sewa_hasil->mobil_id);
+        // $merk = $this->MerkModel->getDataById($mobil->merk_id);
 
         $data = [
             'title' => 'Semobil.io | Riwayat Booking',
-            'sewa' => $sewa,
+            'sewa_hasil' => $sewa_hasil,
+            // 'mobil' => $mobil,
+            // 'merk' => $merk
         ];
 
         $this->load->view('landing/layout/head', $data);
